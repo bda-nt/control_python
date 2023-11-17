@@ -1,16 +1,24 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import string
+import re
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    file = open('inputData/file.input', 'r', encoding='UTF-8')
+    dictionary = {}
+    for line in file:
+        sep_array = string.punctuation + '\n' + ' '
+        regex_pattern = '|'.join(map(re.escape, sep_array))
+        words = re.split(regex_pattern, line)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        for word in words:
+            if len(word) == 0:
+                continue
+
+            word = word.lower()
+            if word in dictionary.keys():
+                dictionary[word] += 1
+                continue
+
+            dictionary[word] = 1
+
+    print(dictionary)
