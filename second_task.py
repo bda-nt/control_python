@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 
 radius = 4
-num_circle_points=360
+num_circle_points = 360
 
 
 def monte_carlo_pi(number_points, num_digits_after_decimal_points=4):
@@ -35,7 +35,6 @@ def monte_carlo_pi(number_points, num_digits_after_decimal_points=4):
     sns.scatterplot(x='x', y='y', data=df_monte_carlo_pi, hue='Location', palette='colorblind')
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.legend(bbox_to_anchor=(0, -.08), loc="upper left")
     plt.title('Расположение рандомных точек')
     plt.show()
 
