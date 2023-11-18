@@ -6,7 +6,7 @@ mode = 'r'
 encoding = 'UTF-8'
 
 
-def read_file() -> string:
+def read_file() -> str:
     """
     Считывает файл и возвращает строки лениво
     :return: Строка файла
